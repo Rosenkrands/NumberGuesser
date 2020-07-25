@@ -47,33 +47,16 @@ namespace NumberGuesser
 
                         PrintColorMessage(ConsoleColor.Yellow, "Det tal kender jeg ikke, prøv et andet");
 
-                        //Console.ForegroundColor = ConsoleColor.Yellow;
-
-                        //Console.WriteLine("Det tal kender jeg ikke, prøv et andet");
-
-                        //Console.ResetColor();
-
                         continue;
                     }
 
                     if (guess != correctNumber)
                     {
                         PrintColorMessage(ConsoleColor.Red, "Det var ikke det tal jeg tænkte på, prøv igen");
-                        //Console.ForegroundColor = ConsoleColor.Red;
-
-                        //Console.WriteLine("Det var ikke det tal jeg tænkte på, prøv igen");
-
-                        //Console.ResetColor();
                     }
                 }
 
                 PrintColorMessage(ConsoleColor.Cyan, "Du gættede rigtigt!");
-
-                //Console.ForegroundColor = ConsoleColor.Cyan;
-
-                //Console.WriteLine("Du gættede rigtigt!");
-
-                //Console.ResetColor();
 
                 Console.WriteLine("Vil du spille en gang mere? [J eller N]");
 
