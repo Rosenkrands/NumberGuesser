@@ -9,7 +9,7 @@ namespace NumberGuesser
         static void Main(string[] args)
         {
             string appName = "Tal Gætter";
-            string appVersion = "1.0.0";
+            string appVersion = "1.1.0";
             string appAuthor = "Kasper Rosenkrands";
 
             Console.ForegroundColor = ConsoleColor.Magenta;
@@ -26,6 +26,7 @@ namespace NumberGuesser
 
             while (true)
             {
+                int numberOfTries = 0;
 
                 Random random = new Random();
 
@@ -37,6 +38,8 @@ namespace NumberGuesser
 
                 while (guess != correctNumber)
                 {
+
+                    numberOfTries += 1;
 
                     string input = Console.ReadLine();
 
@@ -57,6 +60,12 @@ namespace NumberGuesser
                 }
 
                 PrintColorMessage(ConsoleColor.Cyan, "Du gættede rigtigt!");
+
+                Console.ForegroundColor = ConsoleColor.Green;
+
+                Console.WriteLine("Du brugte {0} forsøg", numberOfTries);
+
+                Console.ResetColor();
 
                 Console.WriteLine("Vil du spille en gang mere? [J eller N]");
 
