@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace NumberGuesser
 {
@@ -21,6 +22,8 @@ namespace NumberGuesser
             string inputName = Console.ReadLine();
 
             Console.WriteLine("Hej {0}, lad os spille et spil!", inputName);
+
+            var triesStorage = new List<int>();
 
             while (true)
             {
@@ -65,6 +68,8 @@ namespace NumberGuesser
 
                 Console.ResetColor();
 
+                triesStorage.Add(numberOfTries);
+
                 Console.WriteLine("Vil du spille en gang mere? [J eller N]");
 
                 string answer = Console.ReadLine().ToUpper();
@@ -75,6 +80,26 @@ namespace NumberGuesser
 
                 } else if(answer == "N") {
                     
+                    Console.WriteLine("Du har spillet {0} spil", triesStorage.Count);
+
+                    int sum = 0;
+
+                    foreach(int game in triesStorage){
+                        sum += game;
+                    }
+
+                    double average = (double)sum / triesStorage.Count;
+
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+
+                    Console.WriteLine("Dit gennemsnitlige antal gæt var {0}", average);
+
+                    Console.ResetColor();
+
+                    Console.WriteLine("Tryk enter når du er færdig med at læse");
+
+                    string enter = Console.ReadLine();
+
                     return;
                 
                 } else {
@@ -92,5 +117,6 @@ namespace NumberGuesser
 
             Console.ResetColor();
         }
+
     }
 }
